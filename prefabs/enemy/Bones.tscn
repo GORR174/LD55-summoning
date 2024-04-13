@@ -1,10 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://db18retnjl7ns"]
+[gd_scene load_steps=4 format=3 uid="uid://db18retnjl7ns"]
 
 [ext_resource type="Texture2D" uid="uid://dq0w1k8xkxb1p" path="res://prefabs/enemy/bones.png" id="1_7vsfs"]
+[ext_resource type="Script" path="res://scripts/enemy/Bones.gd" id="1_vhc7x"]
 [ext_resource type="Script" path="res://scripts/InvisibleHider.gd" id="2_j3m0t"]
 
 [node name="Bones" type="Node2D"]
 z_index = 10
+script = ExtResource("1_vhc7x")
 
 [node name="InvisibleHider" type="VisibleOnScreenNotifier2D" parent="." node_paths=PackedStringArray("view")]
 z_index = -1
@@ -22,6 +24,8 @@ texture = ExtResource("1_7vsfs")
 [node name="DespawnTimer" type="Timer" parent="."]
 wait_time = 120.0
 
+[connection signal="screen_entered" from="InvisibleHider" to="." method="_on_invisible_hider_screen_entered"]
 [connection signal="screen_entered" from="InvisibleHider" to="InvisibleHider" method="_on_screen_entered"]
+[connection signal="screen_exited" from="InvisibleHider" to="." method="_on_invisible_hider_screen_exited"]
 [connection signal="screen_exited" from="InvisibleHider" to="InvisibleHider" method="_on_screen_exited"]
-[connection signal="timeout" from="DespawnTimer" to="." method="queue_free"]
+[connection signal="timeout" from="DespawnTimer" to="." method="remove"]

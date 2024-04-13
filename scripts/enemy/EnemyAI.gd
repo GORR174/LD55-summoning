@@ -22,4 +22,13 @@ func _physics_process(delta):
 
 
 func _on_visible_on_screen_notifier_2d_screen_exited():
+	Global.enemies.erase(self)
 	queue_free()
+
+
+func _on_show():
+	Global.enemies.append(self)
+
+
+func _on_hide():
+	Global.enemies.erase(self)

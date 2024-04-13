@@ -149,5 +149,7 @@ unique_name_in_owner = true
 stream = ExtResource("9_bbmm0")
 max_polyphony = 4
 
+[node name="SkeletonMastery" type="Node2D" parent="."]
+
 [connection signal="on_death" from="HealthSystem" to="." method="_on_death"]
 [connection signal="timeout" from="DamageArea/DamageTimer" to="DamageArea" method="damage"]

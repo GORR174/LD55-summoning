@@ -5,6 +5,8 @@ extends Node2D
 
 
 func _ready():
+	Global.bones.clear()
+	Global.enemies.clear()
 	Global.game_ref = self
 	spawn_enemy()
 	spawn_enemy()

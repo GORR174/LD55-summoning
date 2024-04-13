@@ -1,0 +1,67 @@
+[gd_scene load_steps=11 format=3 uid="uid://b65lmwvbfyi27"]
+
+[ext_resource type="Texture2D" uid="uid://winvk38y5c0r" path="res://prefabs/skeleton/Skeleton.png" id="1_j5nyv"]
+[ext_resource type="Script" path="res://scripts/summonings/Skeleton.gd" id="1_nagkk"]
+[ext_resource type="Material" uid="uid://skk5htdtovxl" path="res://shaders/BlinkingMaterial.tres" id="2_2xrny"]
+[ext_resource type="Script" path="res://scripts/DamageArea.gd" id="2_ywlr5"]
+[ext_resource type="Script" path="res://scripts/HealthSystem.gd" id="4_yk2pg"]
+[ext_resource type="Script" path="res://scripts/DamageSystem.gd" id="5_cxymu"]
+[ext_resource type="AudioStream" uid="uid://c7ossq2huyk1c" path="res://audio/Hit_Hurt.wav" id="7_nv5u0"]
+[ext_resource type="PackedScene" uid="uid://c7t51whu41vh" path="res://prefabs/interface/EnemyLifebar.tscn" id="8_f5iqy"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_g1me4"]
+radius = 40.0125
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_67bhv"]
+radius = 12.0416
+
+[node name="Skeleton" type="CharacterBody2D"]
+collision_layer = 16
+collision_mask = 17
+script = ExtResource("1_nagkk")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+z_index = 10
+material = ExtResource("2_2xrny")
+position = Vector2(9.53674e-07, -39)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("1_j5nyv")
+offset = Vector2(6, 0)
+
+[node name="DamageArea" type="Area2D" parent="."]
+position = Vector2(-1, -12)
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("2_ywlr5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
+shape = SubResource("CircleShape2D_g1me4")
+
+[node name="DamageTimer" type="Timer" parent="DamageArea"]
+wait_time = 0.3
+autostart = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -10)
+shape = SubResource("CircleShape2D_67bhv")
+
+[node name="HealthSystem" type="Node" parent="."]
+script = ExtResource("4_yk2pg")
+max_health = 300
+
+[node name="DamageSystem" type="Node" parent="." node_paths=PackedStringArray("blink_object")]
+unique_name_in_owner = true
+script = ExtResource("5_cxymu")
+blink_object = NodePath("../Sprite")
+
+[node name="HitPlayer" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("7_nv5u0")
+volume_db = -4.0
+max_polyphony = 4
+
+[node name="Lifebar" parent="." instance=ExtResource("8_f5iqy")]
+position = Vector2(0, 3)
+scale = Vector2(0.6, 0.6)
+
+[connection signal="timeout" from="DamageArea/DamageTimer" to="DamageArea" method="damage"]
