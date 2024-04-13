@@ -1,10 +1,35 @@
-[gd_scene load_steps=4 format=3 uid="uid://dfi5pg8cyxsd5"]
+[gd_scene load_steps=13 format=3 uid="uid://dfi5pg8cyxsd5"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_foa2j"]
 [ext_resource type="Texture2D" uid="uid://cd6j2u5g0j3e" path="res://prefabs/player/Player.png" id="1_sbp01"]
+[ext_resource type="Script" path="res://scripts/enemy/EnemySpawner.gd" id="3_trqkk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_annlu"]
 size = Vector2(48, 52)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uiujf"]
+size = Vector2(997, 1159)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_m6tgu"]
+size = Vector2(1030.5, 1159)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_yv2k6"]
+size = Vector2(2001, 666.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_44pe3"]
+size = Vector2(2001, 666.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_eat8a"]
+size = Vector2(747.5, 666.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qn4kf"]
+size = Vector2(747.5, 666.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_edeqq"]
+size = Vector2(747.5, 666.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1nbx7"]
+size = Vector2(747.5, 666.5)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_foa2j")
@@ -20,3 +45,57 @@ shape = SubResource("RectangleShape2D_annlu")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(0, -54)
+
+[node name="EnemySpawnArea" type="Area2D" parent="Camera2D"]
+position = Vector2(0, -1)
+collision_layer = 0
+collision_mask = 0
+script = ExtResource("3_trqkk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Camera2D/EnemySpawnArea"]
+position = Vector2(-1497.5, 0.5)
+shape = SubResource("RectangleShape2D_uiujf")
+
+[node name="CollisionShape2D9" type="CollisionShape2D" parent="Camera2D/EnemySpawnArea"]
+position = Vector2(-1497.5, 0.5)
+shape = SubResource("RectangleShape2D_uiujf")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Camera2D/EnemySpawnArea"]
+position = Vector2(1513.75, 0.5)
+shape = SubResource("RectangleShape2D_m6tgu")
+
+[node name="CollisionShape2D10" type="CollisionShape2D" parent="Camera2D/EnemySpawnArea"]
+position = Vector2(1513.75, 0.5)
+shape = SubResource("RectangleShape2D_m6tgu")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Camera2D/EnemySpawnArea"]
+position = Vector2(-6.5, 908.75)
+shape = SubResource("RectangleShape2D_yv2k6")
+
+[node name="CollisionShape2D11" type="CollisionShape2D" parent="Camera2D/EnemySpawnArea"]
+position = Vector2(-6.5, 908.75)
+shape = SubResource("RectangleShape2D_yv2k6")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Camera2D/EnemySpawnArea"]
+position = Vector2(-6.5, -915)
+shape = SubResource("RectangleShape2D_44pe3")
+
+[node name="CollisionShape2D12" type="CollisionShape2D" parent="Camera2D/EnemySpawnArea"]
+position = Vector2(-6.5, -915)
+shape = SubResource("RectangleShape2D_44pe3")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="Camera2D/EnemySpawnArea"]
+position = Vector2(1371.25, -915)
+shape = SubResource("RectangleShape2D_eat8a")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="Camera2D/EnemySpawnArea"]
+position = Vector2(1371.25, 915)
+shape = SubResource("RectangleShape2D_qn4kf")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="Camera2D/EnemySpawnArea"]
+position = Vector2(-1373, 915)
+shape = SubResource("RectangleShape2D_edeqq")
+
+[node name="CollisionShape2D8" type="CollisionShape2D" parent="Camera2D/EnemySpawnArea"]
+position = Vector2(-1373, -908)
+shape = SubResource("RectangleShape2D_1nbx7")
