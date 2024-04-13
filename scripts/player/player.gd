@@ -3,6 +3,8 @@ extends CharacterBody2D
 
 const SPEED = 300.0
 
+@onready var sprite: Sprite2D = $PlayerSprite
+
 
 func _ready():
 	Global.player_ref = self
@@ -14,8 +16,8 @@ func _physics_process(delta):
 	velocity = direction * SPEED
 	
 	if (direction.x < 0):
-		$PlayerSprite.flip_h = true
+		sprite.scale.x = -sprite.scale.y
 	if (direction.x > 0):
-		$PlayerSprite.flip_h = false
+		sprite.scale.x = sprite.scale.y
 
 	move_and_slide()

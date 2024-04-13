@@ -1,11 +1,14 @@
-[gd_scene load_steps=13 format=3 uid="uid://dfi5pg8cyxsd5"]
+[gd_scene load_steps=16 format=3 uid="uid://dfi5pg8cyxsd5"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_foa2j"]
 [ext_resource type="Texture2D" uid="uid://cd6j2u5g0j3e" path="res://prefabs/player/Player.png" id="1_sbp01"]
 [ext_resource type="Script" path="res://scripts/enemy/EnemySpawner.gd" id="3_trqkk"]
+[ext_resource type="Script" path="res://scripts/HealthSystem.gd" id="4_3adh0"]
+[ext_resource type="Script" path="res://scripts/DamageSystem.gd" id="5_vf0fr"]
+[ext_resource type="PackedScene" uid="uid://c7t51whu41vh" path="res://prefabs/interface/EnemyLifebar.tscn" id="6_sxjpl"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_annlu"]
-size = Vector2(48, 52)
+size = Vector2(33, 38)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_uiujf"]
 size = Vector2(997, 1159)
@@ -35,12 +38,13 @@ size = Vector2(747.5, 666.5)
 script = ExtResource("1_foa2j")
 
 [node name="PlayerSprite" type="Sprite2D" parent="."]
-position = Vector2(9, -62)
+position = Vector2(4.76837e-07, -39)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("1_sbp01")
+offset = Vector2(3.2, -2.86102e-06)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-3, -26)
+position = Vector2(-3.5, -19)
 shape = SubResource("RectangleShape2D_annlu")
 
 [node name="Camera2D" type="Camera2D" parent="."]
@@ -99,3 +103,14 @@ shape = SubResource("RectangleShape2D_edeqq")
 [node name="CollisionShape2D8" type="CollisionShape2D" parent="Camera2D/EnemySpawnArea"]
 position = Vector2(-1373, -908)
 shape = SubResource("RectangleShape2D_1nbx7")
+
+[node name="HealthSystem" type="Node" parent="."]
+script = ExtResource("4_3adh0")
+
+[node name="DamageSystem" type="Node" parent="."]
+script = ExtResource("5_vf0fr")
+
+[node name="Lifebar" parent="." instance=ExtResource("6_sxjpl")]
+position = Vector2(-1.07288e-06, 2)
+scale = Vector2(0.8, 0.8)
+should_be_hidden = null

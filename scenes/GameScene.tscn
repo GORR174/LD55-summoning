@@ -8,6 +8,7 @@
 script = ExtResource("1_ghtyx")
 
 [node name="Player" parent="." instance=ExtResource("1_erj3u")]
+z_index = 10
 position = Vector2(2164, 2006)
 
 [node name="ParallaxBackground" type="ParallaxBackground" parent="."]
