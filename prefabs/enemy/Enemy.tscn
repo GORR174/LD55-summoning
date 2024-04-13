@@ -18,6 +18,7 @@ collision_layer = 8
 collision_mask = 9
 collision_priority = 10.0
 script = ExtResource("1_0i8op")
+damage = 10
 
 [node name="EnemyRemover" type="VisibleOnScreenNotifier2D" parent="."]
 z_index = -1

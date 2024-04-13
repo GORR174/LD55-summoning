@@ -24,3 +24,4 @@ wait_time = 120.0
 
 [connection signal="screen_entered" from="InvisibleHider" to="InvisibleHider" method="_on_screen_entered"]
 [connection signal="screen_exited" from="InvisibleHider" to="InvisibleHider" method="_on_screen_exited"]
+[connection signal="timeout" from="DespawnTimer" to="." method="queue_free"]

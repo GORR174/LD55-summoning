@@ -3,7 +3,7 @@ extends CharacterBody2D
 
 const SPEED = 200.0
 
-var damage: int = 1
+var damage: int = 2
 
 @onready var sprite: Sprite2D = $PlayerSprite
 
