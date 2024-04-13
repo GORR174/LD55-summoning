@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
 
-var speed = 50 + randf_range(-10, 80)
+var speed = 50 + randf_range(-10, 50)
 var flip_range = randf_range(2, 20)
 
 @export var damage: int = 5

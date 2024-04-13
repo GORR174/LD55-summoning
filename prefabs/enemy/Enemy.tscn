@@ -13,7 +13,6 @@ radius = 11.0
 
 [node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
 z_index = 10
-y_sort_enabled = true
 collision_layer = 8
 collision_mask = 9
 collision_priority = 10.0

@@ -3,17 +3,17 @@ extends CharacterBody2D
 
 @onready var sprite = $Sprite
 
-var speed = 350
+var speed = 300 + randf_range(-10, 50)
 var target: Node2D
 
 var damage: int = 1
 
 func _physics_process(delta):
+#	I hate myself for this code :P
 	if target == Global.player_ref:
 		target = null
 	if target == null:
 		target = find_target()
-		print(str(target) + " " + str(Global.enemies))
 		if target == null:
 			target = Global.player_ref
 	velocity = (target.position - position).normalized() * speed

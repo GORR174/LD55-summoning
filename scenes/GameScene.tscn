@@ -1,10 +1,9 @@
-[gd_scene load_steps=7 format=3 uid="uid://badas10xywsbd"]
+[gd_scene load_steps=6 format=3 uid="uid://badas10xywsbd"]
 
 [ext_resource type="PackedScene" uid="uid://dfi5pg8cyxsd5" path="res://prefabs/player/player.tscn" id="1_erj3u"]
 [ext_resource type="Script" path="res://scripts/GameScene/GameScene.gd" id="1_ghtyx"]
 [ext_resource type="Shader" path="res://shaders/white_blink.gdshader" id="3_t1dwj"]
 [ext_resource type="TileSet" uid="uid://cphn4c71ft87v" path="res://tileset/ground.tres" id="3_wsq4y"]
-[ext_resource type="PackedScene" uid="uid://b65lmwvbfyi27" path="res://prefabs/skeleton/Skeleton.tscn" id="5_6co4h"]
 
 [sub_resource type="ShaderMaterial" id="ShaderMaterial_hpxd7"]
 resource_local_to_scene = true
@@ -34,8 +33,5 @@ layer_0/tile_data = PackedInt32Array(131072, 1, 0, 196608, 1, 0, 262144, 1, 0, 3
 [node name="EnemySpawnTimer" type="Timer" parent="."]
 wait_time = 5.0
 autostart = true
-
-[node name="Skeleton" parent="." instance=ExtResource("5_6co4h")]
-position = Vector2(2047, 2017)
 
 [connection signal="timeout" from="EnemySpawnTimer" to="." method="spawn_enemy"]
