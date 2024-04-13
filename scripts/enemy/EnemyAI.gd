@@ -18,7 +18,7 @@ func _process(delta):
 
 
 func _physics_process(delta):
-	velocity = (Global.player_ref.position - position).normalized() * speed
+	velocity = ((Global.player_ref.position - Vector2(0, -2)) - position).normalized() * speed
 	move_and_slide()
 
 

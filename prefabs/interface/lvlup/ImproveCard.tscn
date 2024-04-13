@@ -1,0 +1,69 @@
+[gd_scene load_steps=7 format=3 uid="uid://be5oc40shsjh0"]
+
+[ext_resource type="Texture2D" uid="uid://0p3to7wg5qpi" path="res://prefabs/interface/lvlup/improve_item.png" id="1_86khx"]
+[ext_resource type="Script" path="res://scripts/interface/ImproveCard.gd" id="1_d4r3p"]
+[ext_resource type="Texture2D" uid="uid://dpq4csfpa3edj" path="res://textures/necronomicon.png" id="2_cmgh4"]
+[ext_resource type="FontFile" uid="uid://cgtlxpefvcma1" path="res://fonts/Silver.ttf" id="3_6ojdk"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_1ergr"]
+line_spacing = -10.0
+font = ExtResource("3_6ojdk")
+font_size = 28
+outline_size = 6
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_atnu3"]
+size = Vector2(380, 490)
+
+[node name="ImproveCard" type="Node2D"]
+script = ExtResource("1_d4r3p")
+
+[node name="Container" type="Node2D" parent="."]
+
+[node name="Sprite" type="Sprite2D" parent="Container"]
+position = Vector2(0, 1.19209e-07)
+scale = Vector2(10, 10)
+texture = ExtResource("1_86khx")
+offset = Vector2(0, -0.5)
+
+[node name="ItemSprite" type="Sprite2D" parent="Container"]
+position = Vector2(-9.53674e-07, -100)
+scale = Vector2(10, 10)
+texture = ExtResource("2_cmgh4")
+offset = Vector2(-0.5, 0.5)
+
+[node name="Name" type="Label" parent="Container"]
+offset_left = -150.0
+offset_top = 76.0
+offset_right = 150.0
+offset_bottom = 116.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("3_6ojdk")
+theme_override_font_sizes/font_size = 30
+text = "Necronomicon"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Description" type="Label" parent="Container"]
+offset_left = -150.0
+offset_top = 125.0
+offset_right = 150.0
+offset_bottom = 200.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_fonts/font = ExtResource("3_6ojdk")
+theme_override_font_sizes/font_size = 30
+text = "Now you can summon 2 skeletons"
+label_settings = SubResource("LabelSettings_1ergr")
+horizontal_alignment = 1
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_atnu3")
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
+[connection signal="mouse_entered" from="Area2D" to="." method="_on_area_2d_mouse_entered"]
+[connection signal="mouse_exited" from="Area2D" to="." method="_on_area_2d_mouse_exited"]

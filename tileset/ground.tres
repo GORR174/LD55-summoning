@@ -3,7 +3,7 @@
 [ext_resource type="Texture2D" uid="uid://xknfciwnxwsw" path="res://tileset/spritesheet.png" id="1_rg5j5"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7tns1"]
-resource_name = "ground"
+resource_name = "<StyleBoxFlat#-9223223332067798115>"
 texture = ExtResource("1_rg5j5")
 0:0/0 = 0
 1:0/0 = 0
