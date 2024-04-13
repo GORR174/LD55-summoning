@@ -1,8 +1,8 @@
 [gd_resource type="Theme" load_steps=2 format=3 uid="uid://dhmtnj7vvtt4h"]
 
-[ext_resource type="FontFile" uid="uid://ch8od3rcyd1o6" path="res://fonts/Play-Regular.ttf" id="1_kqhgt"]
+[ext_resource type="FontFile" uid="uid://cgtlxpefvcma1" path="res://fonts/Silver.ttf" id="1_mo8sr"]
 
 [resource]
-/fonts/Test = ExtResource("1_kqhgt")
+/fonts/Test = ExtResource("1_mo8sr")
 Label/font_sizes/font_size = 32
-Label/fonts/font = ExtResource("1_kqhgt")
+Label/fonts/font = ExtResource("1_mo8sr")
