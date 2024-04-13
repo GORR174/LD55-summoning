@@ -153,10 +153,10 @@ max_polyphony = 4
 [node name="SkeletonMastery" type="Node2D" parent="."]
 script = ExtResource("11_tft0n")
 
-[node name="Timer" type="Timer" parent="SkeletonMastery"]
-wait_time = 3.0
+[node name="Cool" type="Timer" parent="SkeletonMastery"]
+wait_time = 0.5
 autostart = true
 
 [connection signal="on_death" from="HealthSystem" to="." method="_on_death"]
 [connection signal="timeout" from="DamageArea/DamageTimer" to="DamageArea" method="damage"]
-[connection signal="timeout" from="SkeletonMastery/Timer" to="SkeletonMastery" method="_on_timer_timeout"]
+[connection signal="timeout" from="SkeletonMastery/Cool" to="SkeletonMastery" method="_on_timer_timeout"]

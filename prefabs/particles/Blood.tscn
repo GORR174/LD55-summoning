@@ -1,0 +1,20 @@
+[gd_scene load_steps=2 format=3 uid="uid://4tr1uh8bw6u0"]
+
+[ext_resource type="Texture2D" uid="uid://brx6whqxim4fc" path="res://textures/blood.png" id="1_k8tct"]
+
+[node name="CPUParticles2D" type="CPUParticles2D"]
+z_index = 11
+position = Vector2(-1, 4)
+rotation = -1.5708
+emitting = false
+amount = 100
+one_shot = true
+preprocess = 0.2
+explosiveness = 0.69
+lifetime_randomness = 0.21
+texture = ExtResource("1_k8tct")
+spread = 34.09
+initial_velocity_min = 404.04
+initial_velocity_max = 444.44
+scale_amount_min = 2.0
+scale_amount_max = 2.0
