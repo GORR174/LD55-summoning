@@ -20,4 +20,5 @@ func damage():
 		blood.position = (global_position + enemy.global_position) / 2
 		owner.get_parent().add_child(blood)
 		blood.emitting = true
+		
 		#blood.restart()

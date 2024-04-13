@@ -9,11 +9,10 @@ func _ready():
 	Global.enemies.clear()
 	Global.game_ref = self
 	spawn_enemy()
-	spawn_enemy()
 
 
 func spawn_enemy():
-	Global.enemy_spawner.spawn_enemy()
+	Global.enemy_spawner.spawn_enemy(2)
 
 
 func game_over():

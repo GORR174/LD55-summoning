@@ -66,4 +66,4 @@ position = Vector2(0, -11)
 [connection signal="screen_entered" from="InvisibleHider" to="InvisibleHider" method="_on_screen_entered"]
 [connection signal="screen_exited" from="InvisibleHider" to="." method="_on_hide"]
 [connection signal="screen_exited" from="InvisibleHider" to="InvisibleHider" method="_on_screen_exited"]
-[connection signal="on_death" from="HealthSystem" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="on_death" from="HealthSystem" to="." method="kill"]

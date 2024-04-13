@@ -58,8 +58,6 @@ var seconds: int = 0:
 		if seconds >= 60:
 			seconds -= 60
 			minutes += 1
-		text = (str(minutes) if minutes < 10 else str(minutes)) + \":\" \\
-			+ (\"0\" + str(seconds) if seconds < 10 else str(seconds))
 
 
 func _ready():

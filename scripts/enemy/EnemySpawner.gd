@@ -10,13 +10,22 @@ func _ready():
 		#spawn_enemy()
 
 
-func spawn_enemy():
-	var child = _children[randi() % _children.size()] as CollisionShape2D
-	var rect = child.shape as RectangleShape2D
+func spawn_enemy(count):
+	for i in count:
+		var child = _children[randi() % _children.size()] as CollisionShape2D
+		var rect = child.shape as RectangleShape2D
+		
+		var rand_x = randi_range(child.position.x - rect.size.x / 2, child.position.x + rect.size.x / 2)
+		var rand_y = randi_range(child.position.y - rect.size.y / 2, child.position.y + rect.size.y / 2)
+		
+		var enemy = load("res://prefabs/enemy/Enemy.tscn").instantiate()
+		enemy.position = to_global(Vector2(rand_x, rand_y))
+		Global.game_ref.add_child.call_deferred(enemy)
 	
-	var rand_x = randi_range(child.position.x - rect.size.x / 2, child.position.x + rect.size.x / 2)
-	var rand_y = randi_range(child.position.y - rect.size.y / 2, child.position.y + rect.size.y / 2)
-	
-	var enemy = load("res://prefabs/enemy/Enemy.tscn").instantiate()
-	enemy.position = to_global(Vector2(rand_x, rand_y))
-	Global.game_ref.add_child.call_deferred(enemy)
+	var time = Global.timer_ref
+	if time.minutes < 1 and time.seconds < 20:
+		get_tree().create_timer(4).timeout.connect(spawn_enemy.bind(1))
+	elif time.minutes < 1:
+		get_tree().create_timer(4).timeout.connect(spawn_enemy.bind(2))
+	elif time.minutes < 10:
+		get_tree().create_timer(3).timeout.connect(spawn_enemy.bind(2))
