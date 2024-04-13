@@ -1,7 +1,9 @@
 extends CharacterBody2D
 
 
-const SPEED = 300.0
+const SPEED = 200.0
+
+var damage: int = 1
 
 @onready var sprite: Sprite2D = $PlayerSprite
 
@@ -21,3 +23,7 @@ func _physics_process(delta):
 		sprite.scale.x = sprite.scale.y
 
 	move_and_slide()
+
+
+func _on_death():
+	Global.game_ref.game_over()

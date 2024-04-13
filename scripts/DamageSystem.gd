@@ -45,7 +45,7 @@ func _process(delta):
 func damage(damage: int, damager: Node2D):
 	health_system.damage(damage, damager)
 	damaged.emit(damage, damager)
-	spawn_damage_label(damage)
+	#spawn_damage_label(damage)
 	blinking = 0.8
 	
 

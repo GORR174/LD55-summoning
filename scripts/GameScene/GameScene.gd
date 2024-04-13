@@ -1,10 +1,16 @@
 extends Node2D
 
 
-# Called when the node enters the scene tree for the first time.
+@onready var next_scene: PackedScene = load("res://scenes/Menu.tscn")
+
+
 func _ready():
 	Global.game_ref = self
 
 
 func spawn_enemy():
 	Global.enemy_spawner.spawn_enemy()
+
+
+func game_over():
+	get_tree().change_scene_to_packed(next_scene)

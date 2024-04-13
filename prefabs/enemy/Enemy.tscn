@@ -1,9 +1,59 @@
-[gd_scene format=3 uid="uid://cmdqemjk64se0"]
+[gd_scene load_steps=9 format=3 uid="uid://cmdqemjk64se0"]
 
-[node name="Enemy" type="CharacterBody2D"]
+[ext_resource type="Script" path="res://scripts/enemy/EnemyAI.gd" id="1_0i8op"]
+[ext_resource type="Material" uid="uid://skk5htdtovxl" path="res://shaders/BlinkingMaterial.tres" id="2_e5nao"]
+[ext_resource type="Texture2D" uid="uid://uim7oq33m5i" path="res://prefabs/enemy/enemy.png" id="3_ch0nf"]
+[ext_resource type="Script" path="res://scripts/InvisibleHider.gd" id="3_kytkw"]
+[ext_resource type="Script" path="res://scripts/DamageSystem.gd" id="4_ikkwj"]
+[ext_resource type="Script" path="res://scripts/HealthSystem.gd" id="5_d7ein"]
+[ext_resource type="PackedScene" uid="uid://c7t51whu41vh" path="res://prefabs/interface/EnemyLifebar.tscn" id="6_cests"]
 
-[node name="ColorRect" type="ColorRect" parent="."]
-offset_left = -21.0
-offset_top = -21.0
-offset_right = 19.0
-offset_bottom = 19.0
+[sub_resource type="CircleShape2D" id="CircleShape2D_be2xh"]
+radius = 11.0
+
+[node name="Enemy" type="CharacterBody2D" groups=["enemy"]]
+z_index = 10
+y_sort_enabled = true
+collision_layer = 8
+collision_mask = 9
+collision_priority = 10.0
+script = ExtResource("1_0i8op")
+
+[node name="Sprite" type="Sprite2D" parent="."]
+modulate = Color(0.521569, 0.317647, 0.223529, 1)
+material = ExtResource("2_e5nao")
+position = Vector2(8, -39)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("3_ch0nf")
+
+[node name="EnemyRemover" type="VisibleOnScreenNotifier2D" parent="."]
+visible = false
+position = Vector2(-27.4999, -5.99988)
+scale = Vector2(132.35, 136.914)
+
+[node name="InvisibleHider" type="VisibleOnScreenNotifier2D" parent="." node_paths=PackedStringArray("view")]
+visible = false
+position = Vector2(7.00001, -38.5)
+scale = Vector2(4.2, 4.35)
+script = ExtResource("3_kytkw")
+view = NodePath("../Sprite")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-2, -10)
+shape = SubResource("CircleShape2D_be2xh")
+
+[node name="DamageSystem" type="Node" parent="." node_paths=PackedStringArray("blink_object")]
+script = ExtResource("4_ikkwj")
+blink_object = NodePath("../Sprite")
+
+[node name="HealthSystem" type="Node" parent="."]
+script = ExtResource("5_d7ein")
+max_health = 10
+
+[node name="Lifebar" parent="." instance=ExtResource("6_cests")]
+position = Vector2(0, 2)
+scale = Vector2(0.7, 0.7)
+
+[connection signal="screen_exited" from="EnemyRemover" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
+[connection signal="screen_entered" from="InvisibleHider" to="InvisibleHider" method="_on_screen_entered"]
+[connection signal="screen_exited" from="InvisibleHider" to="InvisibleHider" method="_on_screen_exited"]

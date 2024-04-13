@@ -19,8 +19,8 @@ var is_dead = false
 signal on_death
 signal health_changed(health, previous, max_health)
 
-var meat = load("res://prefabs/meat/Meat.tscn")
-var blood = load("res://prefabs/blood/Blood.tscn")
+#var meat = load("res://prefabs/meat/Meat.tscn")
+#var blood = load("res://prefabs/blood/Blood.tscn")
 
 
 func _ready():
@@ -33,22 +33,22 @@ func damage(damage, damager):
 	if !is_dead and health <= 0:
 		is_dead = true
 		on_death.emit()
-		if should_spawn_meat:
-			_spawn_meat(damager)
+		#if should_spawn_meat:
+			#_spawn_meat(damager)
 		if on_death.get_connections().size() <= 0:
 			get_parent().queue_free()
 		
 
 
-func _spawn_meat(damager):
-	var meat_position = get_parent().global_position if meat_spawn_point == null else meat_spawn_point.global_position
-	
-	for i in range(randi_range(4, 7)):
-		var meat_instance = meat.instantiate()
-		meat_instance.position = meat_position
-		Global.level_ref.add_child(meat_instance)
-	
-	var blood_instance = blood.instantiate()
-	blood_instance.position = meat_position
-	blood_instance.rotation = damager.global_rotation
-	Global.level_ref.add_child(blood_instance)
+#func _spawn_meat(damager):
+	#var meat_position = get_parent().global_position if meat_spawn_point == null else meat_spawn_point.global_position
+	#
+	#for i in range(randi_range(4, 7)):
+		#var meat_instance = meat.instantiate()
+		#meat_instance.position = meat_position
+		#Global.level_ref.add_child(meat_instance)
+	#
+	#var blood_instance = blood.instantiate()
+	#blood_instance.position = meat_position
+	#blood_instance.rotation = damager.global_rotation
+	#Global.level_ref.add_child(blood_instance)
