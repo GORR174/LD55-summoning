@@ -36,9 +36,10 @@ metadata/_edit_lock_ = true
 [node name="Sprite" type="Sprite2D" parent="."]
 modulate = Color(0.521569, 0.317647, 0.223529, 1)
 material = ExtResource("2_e5nao")
-position = Vector2(8, -39)
+position = Vector2(4.76837e-07, -39)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("3_ch0nf")
+offset = Vector2(3.2, 0)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, -10)

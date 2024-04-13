@@ -1,4 +1,4 @@
-[gd_scene load_steps=29 format=3 uid="uid://dfi5pg8cyxsd5"]
+[gd_scene load_steps=30 format=3 uid="uid://dfi5pg8cyxsd5"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_foa2j"]
 [ext_resource type="Material" uid="uid://skk5htdtovxl" path="res://shaders/BlinkingMaterial.tres" id="1_fxv35"]
@@ -15,6 +15,7 @@
 [ext_resource type="AudioStream" uid="uid://bui7lu42b15ae" path="res://audio/Powerup.wav" id="12_1xbdm"]
 [ext_resource type="Script" path="res://scripts/player/CorpseExplosionMastery.gd" id="14_12t0w"]
 [ext_resource type="Script" path="res://scripts/player/CorpseChecker.gd" id="15_yxe7v"]
+[ext_resource type="AudioStream" uid="uid://bt0r7ahscccog" path="res://audio/Death in the kingdom.wav" id="16_p30p1"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_annlu"]
 size = Vector2(33, 38)
@@ -226,17 +227,6 @@ shape = SubResource("CircleShape2D_ajdj7")
 wait_time = 0.3
 autostart = true
 
-[node name="HitPlayer" type="AudioStreamPlayer2D" parent="."]
-unique_name_in_owner = true
-stream = ExtResource("9_bbmm0")
-max_polyphony = 4
-
-[node name="lvlupPlayer" type="AudioStreamPlayer2D" parent="."]
-unique_name_in_owner = true
-process_mode = 3
-stream = ExtResource("12_1xbdm")
-max_polyphony = 4
-
 [node name="SkeletonMastery" type="Node2D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("11_tft0n")
@@ -255,6 +245,21 @@ script = ExtResource("15_yxe7v")
 [node name="Timer" type="Timer" parent="CorpseChecker"]
 wait_time = 0.5
 autostart = true
+
+[node name="HitPlayer" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("9_bbmm0")
+max_polyphony = 4
+
+[node name="lvlupPlayer" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+process_mode = 3
+stream = ExtResource("12_1xbdm")
+max_polyphony = 4
+
+[node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("16_p30p1")
+autoplay = true
 
 [connection signal="on_death" from="HealthSystem" to="." method="_on_death"]
 [connection signal="timeout" from="DamageArea/DamageTimer" to="DamageArea" method="damage"]
