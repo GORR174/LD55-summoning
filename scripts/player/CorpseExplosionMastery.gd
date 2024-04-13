@@ -1,21 +1,21 @@
 extends Node2D
 
 
-@onready var skeleton = preload("res://prefabs/skeleton/Skeleton.tscn")
+@onready var corpse_explosion_scene = preload("res://prefabs/particles/CorpseExplosionParticles.tscn")
 
-var max_num = 2
 var cooldown = false
 var cooldown_time = 10
 
 
 func exec():
-	if !cooldown and get_tree().get_nodes_in_group("skeleton").size() < max_num:
+	if !cooldown:
 		var bones_position = Global.pick_bones()
 		if bones_position == null:
 			return false
-		var skeleton = skeleton.instantiate()
-		skeleton.position = bones_position
-		Global.game_ref.add_child(skeleton)
+		var corpse_explosion = corpse_explosion_scene.instantiate()
+		corpse_explosion.position = bones_position
+		Global.game_ref.add_child(corpse_explosion)
+		corpse_explosion.emitting = true
 		cooldown = true
 		get_tree().create_timer(cooldown_time).timeout.connect(reset_cooldown)
 		return true

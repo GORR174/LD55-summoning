@@ -1,0 +1,55 @@
+[gd_scene load_steps=6 format=3 uid="uid://d30exnj17a4x7"]
+
+[ext_resource type="Texture2D" uid="uid://brx6whqxim4fc" path="res://textures/blood.png" id="1_58rgu"]
+[ext_resource type="AudioStream" uid="uid://d1fnyunjmw3jj" path="res://audio/explosion.wav" id="2_quatn"]
+[ext_resource type="Script" path="res://scripts/DamageArea.gd" id="3_x8wj0"]
+
+[sub_resource type="GDScript" id="GDScript_teuhj"]
+script/source = "extends CPUParticles2D
+
+
+var damage = 8
+
+
+func _ready():
+	get_tree().create_timer(0.1).timeout.connect($DamageArea.damage)
+"
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_wumgk"]
+radius = 251.032
+
+[node name="CorpseExplosion" type="CPUParticles2D"]
+z_index = 11
+position = Vector2(-1, 4)
+rotation = -1.5708
+emitting = false
+amount = 1000
+lifetime = 0.5
+one_shot = true
+explosiveness = 0.82
+lifetime_randomness = 0.21
+texture = ExtResource("1_58rgu")
+spread = 180.0
+gravity = Vector2(0, 98)
+initial_velocity_min = 40.41
+initial_velocity_max = 434.34
+scale_amount_min = 2.0
+scale_amount_max = 2.0
+color = Color(1, 1, 0, 1)
+script = SubResource("GDScript_teuhj")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("2_quatn")
+autoplay = true
+
+[node name="DamageArea" type="Area2D" parent="."]
+position = Vector2(-0.999996, -1)
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("3_x8wj0")
+custom = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
+shape = SubResource("CircleShape2D_wumgk")
+
+[connection signal="finished" from="." to="." method="queue_free"]

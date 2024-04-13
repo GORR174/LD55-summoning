@@ -7,18 +7,22 @@ extends Area2D
 
 var _can_hit = true
 
+@export var custom = false
+
 
 func damage():
 	_can_hit = true
 	for enemy in get_overlapping_bodies():
 		enemy.find_child("DamageSystem").damage(owner.damage, owner)
-		if _can_hit:
+		if _can_hit and !custom:
 			player_damage_system.damage(enemy.damage, enemy)
 			_can_hit = false
-		hit_player.play()
+		if !custom:
+			hit_player.play()
 		var blood = blood_scene.instantiate() as CPUParticles2D
-		blood.position = (global_position + enemy.global_position) / 2
+		if !custom:
+			blood.position = (global_position + enemy.global_position) / 2
+		else:
+			blood.position = enemy.global_position
 		owner.get_parent().add_child(blood)
 		blood.emitting = true
-		
-		#blood.restart()

@@ -18,3 +18,5 @@ initial_velocity_min = 404.04
 initial_velocity_max = 444.44
 scale_amount_min = 2.0
 scale_amount_max = 2.0
+
+[connection signal="finished" from="." to="." method="queue_free"]

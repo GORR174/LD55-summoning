@@ -1,13 +1,18 @@
 extends CharacterBody2D
 
 
+@onready var sprite: Sprite2D = $PlayerSprite
+@onready var level_progress_bar = %LevelProgressBar
+@onready var level_label = %LevelLabel
+@onready var levelup_sound = %lvlupPlayer
+
 const SPEED = 200.0
 
 var damage: int = 2
 
-@onready var sprite: Sprite2D = $PlayerSprite
 var current_lvl = 1
 var to_next_lvl = 3
+
 var current_xp: float = 0:
 	set(value):
 		current_xp = value
@@ -18,9 +23,10 @@ var current_xp: float = 0:
 				to_next_lvl = to_next_lvl * 1.3
 			else:
 				to_next_lvl = to_next_lvl * 1.1
+			levelup_sound.play()
 			print("LVLUP xp to next lvl: " + str(to_next_lvl))
-		%LevelProgressBar.value = (current_xp / to_next_lvl * 100)
-		%LevelLabel.text = "LVL: " + str(current_lvl)
+		level_progress_bar.value = (current_xp / to_next_lvl * 100)
+		level_label.text = "LVL: " + str(current_lvl)
 
 func _ready():
 	Global.player_ref = self
