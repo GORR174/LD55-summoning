@@ -19,24 +19,26 @@ collision_mask = 9
 collision_priority = 10.0
 script = ExtResource("1_0i8op")
 
+[node name="EnemyRemover" type="VisibleOnScreenNotifier2D" parent="."]
+z_index = -1
+position = Vector2(-27.4999, -5.99988)
+scale = Vector2(132.35, 136.914)
+metadata/_edit_lock_ = true
+
+[node name="InvisibleHider" type="VisibleOnScreenNotifier2D" parent="." node_paths=PackedStringArray("view")]
+z_index = -1
+position = Vector2(7.00001, -38.5)
+scale = Vector2(4.2, 4.35)
+script = ExtResource("3_kytkw")
+view = NodePath("../Sprite")
+metadata/_edit_lock_ = true
+
 [node name="Sprite" type="Sprite2D" parent="."]
 modulate = Color(0.521569, 0.317647, 0.223529, 1)
 material = ExtResource("2_e5nao")
 position = Vector2(8, -39)
 scale = Vector2(2.5, 2.5)
 texture = ExtResource("3_ch0nf")
-
-[node name="EnemyRemover" type="VisibleOnScreenNotifier2D" parent="."]
-visible = false
-position = Vector2(-27.4999, -5.99988)
-scale = Vector2(132.35, 136.914)
-
-[node name="InvisibleHider" type="VisibleOnScreenNotifier2D" parent="." node_paths=PackedStringArray("view")]
-visible = false
-position = Vector2(7.00001, -38.5)
-scale = Vector2(4.2, 4.35)
-script = ExtResource("3_kytkw")
-view = NodePath("../Sprite")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-2, -10)
@@ -46,13 +48,18 @@ shape = SubResource("CircleShape2D_be2xh")
 script = ExtResource("4_ikkwj")
 blink_object = NodePath("../Sprite")
 
-[node name="HealthSystem" type="Node" parent="."]
+[node name="HealthSystem" type="Node" parent="." node_paths=PackedStringArray("meat_spawn_point")]
 script = ExtResource("5_d7ein")
 max_health = 10
+should_spawn_meat = true
+meat_spawn_point = NodePath("../BonesSpawnPoint")
 
 [node name="Lifebar" parent="." instance=ExtResource("6_cests")]
 position = Vector2(0, 2)
 scale = Vector2(0.7, 0.7)
+
+[node name="BonesSpawnPoint" type="Node2D" parent="."]
+position = Vector2(0, -11)
 
 [connection signal="screen_exited" from="EnemyRemover" to="." method="_on_visible_on_screen_notifier_2d_screen_exited"]
 [connection signal="screen_entered" from="InvisibleHider" to="InvisibleHider" method="_on_screen_entered"]

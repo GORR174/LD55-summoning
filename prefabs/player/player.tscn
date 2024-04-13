@@ -41,7 +41,6 @@ radius = 40.0125
 
 [node name="Player" type="CharacterBody2D"]
 z_index = 10
-y_sort_enabled = true
 material = ExtResource("1_fxv35")
 collision_layer = 4
 script = ExtResource("1_foa2j")

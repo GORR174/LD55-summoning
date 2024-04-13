@@ -1,0 +1,26 @@
+[gd_scene load_steps=3 format=3 uid="uid://db18retnjl7ns"]
+
+[ext_resource type="Texture2D" uid="uid://dq0w1k8xkxb1p" path="res://prefabs/enemy/bones.png" id="1_7vsfs"]
+[ext_resource type="Script" path="res://scripts/InvisibleHider.gd" id="2_j3m0t"]
+
+[node name="Bones" type="Node2D"]
+z_index = 10
+
+[node name="InvisibleHider" type="VisibleOnScreenNotifier2D" parent="." node_paths=PackedStringArray("view")]
+z_index = -1
+position = Vector2(0.500002, 7.5)
+scale = Vector2(3.15, 2.25)
+script = ExtResource("2_j3m0t")
+view = NodePath("../Bones")
+metadata/_edit_lock_ = true
+
+[node name="Bones" type="Sprite2D" parent="."]
+position = Vector2(1, 8)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("1_7vsfs")
+
+[node name="DespawnTimer" type="Timer" parent="."]
+wait_time = 120.0
+
+[connection signal="screen_entered" from="InvisibleHider" to="InvisibleHider" method="_on_screen_entered"]
+[connection signal="screen_exited" from="InvisibleHider" to="InvisibleHider" method="_on_screen_exited"]

@@ -6,6 +6,8 @@ extends Node2D
 
 func _ready():
 	Global.game_ref = self
+	spawn_enemy()
+	spawn_enemy()
 
 
 func spawn_enemy():
