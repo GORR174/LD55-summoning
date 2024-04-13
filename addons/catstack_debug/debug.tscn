@@ -1,0 +1,31 @@
+[gd_scene load_steps=3 format=3 uid="uid://d2xj6qke0h2f4"]
+
+[ext_resource type="Script" path="res://addons/catstack_debug/FpsCounter.gd" id="1_mk5uh"]
+[ext_resource type="Script" path="res://addons/catstack_debug/Version.gd" id="1_y5a5r"]
+
+[node name="DebugInfo" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Version" type="Label" parent="CanvasLayer"]
+offset_left = 1540.0
+offset_top = 1011.0
+offset_right = 1895.0
+offset_bottom = 1059.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 28
+text = "v1.0.0"
+horizontal_alignment = 2
+script = ExtResource("1_y5a5r")
+
+[node name="FpsCounter" type="Label" parent="CanvasLayer"]
+offset_left = 25.0
+offset_top = 18.0
+offset_right = 133.0
+offset_bottom = 66.0
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 8
+theme_override_font_sizes/font_size = 28
+text = "FPS: 60"
+script = ExtResource("1_mk5uh")

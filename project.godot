@@ -1,0 +1,67 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=5
+
+[application]
+
+config/name="Necromancy Survivors"
+config/version="0.0.1-SNAPSHOT"
+run/main_scene="res://scenes/Menu.tscn"
+config/use_custom_user_dir=true
+config/custom_user_dir_name="Catstack/NecromancySurvivors"
+config/features=PackedStringArray("4.2", "GL Compatibility")
+config/icon="res://icon.svg"
+
+[autoload]
+
+Panku="*res://addons/catstack_console/console.tscn"
+CatstackDebug="*res://addons/catstack_debug/debug.tscn"
+Global="*res://scripts/Global.gd"
+
+[display]
+
+window/size/viewport_width=1920
+window/size/viewport_height=1080
+window/size/window_width_override=1280
+window/size/window_height_override=720
+window/stretch/mode="canvas_items"
+window/stretch/aspect="ignore"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/catstack_console/plugin.cfg", "res://addons/catstack_debug/plugin.cfg")
+
+[file_customization]
+
+folder_colors={
+"res://audio/": "yellow",
+"res://prefabs/": "green",
+"res://scenes/": "blue",
+"res://scripts/": "orange",
+"res://shaders/": "teal"
+}
+
+[gui]
+
+theme/default_font_generate_mipmaps=true
+
+[internationalization]
+
+locale/translations=PackedStringArray("res://local/translation.en.translation", "res://local/translation.ru.translation")
+
+[physics]
+
+common/physics_ticks_per_second=120
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+anti_aliasing/quality/msaa_2d=2
+anti_aliasing/quality/screen_space_aa=1
