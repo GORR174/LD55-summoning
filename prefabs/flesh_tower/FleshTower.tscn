@@ -1,0 +1,58 @@
+[gd_scene load_steps=6 format=3 uid="uid://nivvjkrp2jos"]
+
+[ext_resource type="Texture2D" uid="uid://cl31ufr3yvl43" path="res://textures/poison.png" id="1_u0qfb"]
+[ext_resource type="Script" path="res://scripts/summonings/FleshTower.gd" id="1_ual0u"]
+[ext_resource type="Texture2D" uid="uid://i6p54lajy2e2" path="res://prefabs/flesh_tower/flesh_tower.png" id="1_vs2sb"]
+[ext_resource type="Script" path="res://scripts/DamageArea.gd" id="3_c4mps"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_sftcn"]
+resource_local_to_scene = true
+radius = 250.0
+
+[node name="FleshTower" type="Node2D"]
+z_index = 10
+script = ExtResource("1_ual0u")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+position = Vector2(-1, 58)
+rotation = -1.51951
+scale = Vector2(2, 2)
+amount = 300
+lifetime = 4.0
+texture = ExtResource("1_u0qfb")
+emission_shape = 1
+emission_sphere_radius = 128.0
+spread = 20.0
+gravity = Vector2(0, 10)
+initial_velocity_min = 15.0
+initial_velocity_max = 30.0
+scale_amount_min = 2.5
+scale_amount_max = 2.5
+
+[node name="FleshTower" type="Sprite2D" parent="."]
+position = Vector2(-2, -46)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("1_vs2sb")
+
+[node name="DamageArea" type="Area2D" parent="."]
+position = Vector2(-0.999996, -1)
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("3_c4mps")
+custom = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
+visible = false
+shape = SubResource("CircleShape2D_sftcn")
+
+[node name="DamageTimer" type="Timer" parent="DamageArea"]
+wait_time = 0.5
+autostart = true
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+z_index = -1
+position = Vector2(-188, -146)
+color = Color(0.121569, 0.168627, 0, 0.411765)
+polygon = PackedVector2Array(65, -71, 12, -35, -29, 18, -54, 83, -61, 145, -54, 209, -29, 273, 9, 321, 61, 362, 123, 387, 188, 395, 255, 386, 316, 360, 369, 319, 402, 272, 431, 210, 437, 143, 427, 73, 404, 16, 362, -33, 311, -71, 254, -96, 188, -105, 125, -96)
+
+[connection signal="timeout" from="DamageArea/DamageTimer" to="DamageArea" method="damage"]
