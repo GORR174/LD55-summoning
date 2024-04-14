@@ -10,6 +10,8 @@ extends CharacterBody2D
 const SPEED = 200.0
 
 var damage: int = 20
+var dodge_chance = 0.0
+var damage_substraction = 0
 
 var current_lvl = 1
 var to_next_lvl = 3

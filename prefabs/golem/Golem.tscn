@@ -1,0 +1,71 @@
+[gd_scene load_steps=11 format=3 uid="uid://dxcugo55qdyqt"]
+
+[ext_resource type="Script" path="res://scripts/summonings/Skeleton.gd" id="1_3o38f"]
+[ext_resource type="Material" uid="uid://skk5htdtovxl" path="res://shaders/BlinkingMaterial.tres" id="2_sjdm6"]
+[ext_resource type="Texture2D" uid="uid://de6kfevl07udn" path="res://prefabs/golem/clay_golem.png" id="3_xmtw5"]
+[ext_resource type="Script" path="res://scripts/DamageArea.gd" id="4_tkb1o"]
+[ext_resource type="Script" path="res://scripts/HealthSystem.gd" id="5_r3gpc"]
+[ext_resource type="Script" path="res://scripts/DamageSystem.gd" id="6_y7ulf"]
+[ext_resource type="AudioStream" uid="uid://c7ossq2huyk1c" path="res://audio/Hit_Hurt.wav" id="7_44rex"]
+[ext_resource type="PackedScene" uid="uid://c7t51whu41vh" path="res://prefabs/interface/EnemyLifebar.tscn" id="8_ye3f4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ll60v"]
+resource_local_to_scene = true
+radius = 107.075
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ux37f"]
+resource_local_to_scene = true
+radius = 25.0
+
+[node name="Golem" type="CharacterBody2D" groups=["golem"]]
+collision_layer = 16
+collision_mask = 17
+script = ExtResource("1_3o38f")
+start_speed = 200
+damage = 20
+damage_substraction = 1
+
+[node name="Sprite" type="Sprite2D" parent="."]
+z_index = 10
+material = ExtResource("2_sjdm6")
+position = Vector2(-9.53674e-07, -65)
+scale = Vector2(2.5, 2.5)
+texture = ExtResource("3_xmtw5")
+offset = Vector2(2.8, 0)
+
+[node name="DamageArea" type="Area2D" parent="."]
+position = Vector2(-1, -12)
+collision_layer = 0
+collision_mask = 8
+script = ExtResource("4_tkb1o")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DamageArea"]
+shape = SubResource("CircleShape2D_ll60v")
+
+[node name="DamageTimer" type="Timer" parent="DamageArea"]
+autostart = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -21)
+shape = SubResource("CircleShape2D_ux37f")
+
+[node name="HealthSystem" type="Node" parent="."]
+script = ExtResource("5_r3gpc")
+max_health = 400
+
+[node name="DamageSystem" type="Node" parent="." node_paths=PackedStringArray("blink_object")]
+unique_name_in_owner = true
+script = ExtResource("6_y7ulf")
+blink_object = NodePath("../Sprite")
+
+[node name="HitPlayer" type="AudioStreamPlayer2D" parent="."]
+unique_name_in_owner = true
+stream = ExtResource("7_44rex")
+volume_db = -4.0
+max_polyphony = 4
+
+[node name="Lifebar" parent="." instance=ExtResource("8_ye3f4")]
+position = Vector2(0, 3)
+scale = Vector2(0.6, 0.6)
+
+[connection signal="timeout" from="DamageArea/DamageTimer" to="DamageArea" method="damage"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=3 uid="uid://dfi5pg8cyxsd5"]
+[gd_scene load_steps=32 format=3 uid="uid://dfi5pg8cyxsd5"]
 
 [ext_resource type="Script" path="res://scripts/player/player.gd" id="1_foa2j"]
 [ext_resource type="Material" uid="uid://skk5htdtovxl" path="res://shaders/BlinkingMaterial.tres" id="1_fxv35"]
@@ -14,6 +14,7 @@
 [ext_resource type="Script" path="res://scripts/player/SkeletonMastery.gd" id="11_tft0n"]
 [ext_resource type="AudioStream" uid="uid://bui7lu42b15ae" path="res://audio/Powerup.wav" id="12_1xbdm"]
 [ext_resource type="Script" path="res://scripts/player/FleshTowerMastery.gd" id="13_uwgbt"]
+[ext_resource type="Script" path="res://scripts/player/GolemMastery.gd" id="14_8gtnb"]
 [ext_resource type="Script" path="res://scripts/player/CorpseExplosionMastery.gd" id="14_12t0w"]
 [ext_resource type="Script" path="res://scripts/player/CorpseChecker.gd" id="15_yxe7v"]
 [ext_resource type="AudioStream" uid="uid://bt0r7ahscccog" path="res://audio/Death in the kingdom.wav" id="16_p30p1"]
@@ -243,6 +244,10 @@ script = ExtResource("14_12t0w")
 [node name="FleshMastery" type="Node2D" parent="."]
 unique_name_in_owner = true
 script = ExtResource("13_uwgbt")
+
+[node name="GolemMastery" type="Node2D" parent="."]
+unique_name_in_owner = true
+script = ExtResource("14_8gtnb")
 
 [node name="CorpseChecker" type="Node2D" parent="."]
 script = ExtResource("15_yxe7v")

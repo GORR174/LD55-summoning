@@ -15,7 +15,9 @@ func damage():
 	for enemy in get_overlapping_bodies():
 		enemy.find_child("DamageSystem").damage(owner.damage, owner)
 		if _can_hit and !custom:
-			player_damage_system.damage(enemy.damage, enemy)
+			var chance = owner.dodge_chance
+			if randf() > chance:
+				player_damage_system.damage(enemy.damage - owner.damage_substraction, enemy)
 			_can_hit = false
 		if !custom:
 			hit_player.play()

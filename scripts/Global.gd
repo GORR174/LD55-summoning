@@ -15,7 +15,9 @@ var upgrades: Array = [
 	Necronomicon2.new(),
 	CorpseExplosion1.new(),
 	FleshTower1.new(),
-	HealthPotionUpgrade.new()
+	HealthPotionUpgrade.new(),
+	DamagePotionUpgrade.new(),
+	MeleeUpgrade1.new()
 ]
 
 func reset():
@@ -25,7 +27,9 @@ func reset():
 		Necronomicon2.new(),
 		CorpseExplosion1.new(),
 		FleshTower1.new(),
-		HealthPotionUpgrade.new()
+		HealthPotionUpgrade.new(),
+		DamagePotionUpgrade.new(),
+		MeleeUpgrade1.new()
 	]
 
 

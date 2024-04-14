@@ -3,10 +3,13 @@ extends CharacterBody2D
 
 @onready var sprite = $Sprite
 
-var speed = 300 + randf_range(-10, 50)
+@export var start_speed = 300
+var speed = start_speed + randf_range(-10, 50)
 var target: Node2D
 
-var damage: int = 10
+@export var damage: int = 10
+var dodge_chance = 0.1
+@export var damage_substraction = 0
 
 func _physics_process(delta):
 #	I hate myself for this code :P
