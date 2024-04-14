@@ -17,7 +17,8 @@ var upgrades: Array = [
 	FleshTower1.new(),
 	HealthPotionUpgrade.new(),
 	DamagePotionUpgrade.new(),
-	MeleeUpgrade1.new()
+	MeleeUpgrade1.new(),
+	Golem1.new()
 ]
 
 func reset():
@@ -29,14 +30,15 @@ func reset():
 		FleshTower1.new(),
 		HealthPotionUpgrade.new(),
 		DamagePotionUpgrade.new(),
-		MeleeUpgrade1.new()
+		MeleeUpgrade1.new(),
+		Golem1.new()
 	]
 
 
 func pick_bones():
 	if bones.size() > 0:
 		var bone = bones[randi() % bones.size()]
-		var pos = bone.global_position
+		var pos = Vector2(bone.global_position)
 		bone.remove()
 		return pos
 	return null

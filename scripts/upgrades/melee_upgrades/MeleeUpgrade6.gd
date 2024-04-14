@@ -12,4 +12,4 @@ func _init():
 
 func apply():
 	Global.player_ref.dodge_chance = 0.3
-	Global.player_ref.find_child("HealingSystem").regenerate_cooldown -= 1
+	Global.player_ref.find_child("HealingSystem").regenerate_cooldown -= 2

@@ -20,7 +20,6 @@ func exec():
 			var bones_position = Global.pick_bones()
 			if bones_position == null and i == 0:
 				return false
-			print("corpse " + str(i))
 			var corpse_explosion = corpse_explosion_scene.instantiate()
 			corpse_explosion.position = bones_position
 			corpse_explosion.damage += additional_damage

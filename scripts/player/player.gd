@@ -24,8 +24,14 @@ var current_xp: float = 0:
 			current_lvl += 1
 			if current_lvl < 4:
 				to_next_lvl = to_next_lvl * 1.3
-			else:
+			elif current_lvl < 10:
+				to_next_lvl = to_next_lvl * 1.2
+			elif current_lvl < 20:
 				to_next_lvl = to_next_lvl * 1.1
+			elif current_lvl < 28:
+				to_next_lvl = to_next_lvl * 1.03
+			else:
+				to_next_lvl = to_next_lvl * 1.01
 			levelup_sound.play()
 			var lvlup_screen = lvlup_screen_scene.instantiate()
 			lvlup_screen.position = Vector2(-1920 / 2, -1080 / 2)
