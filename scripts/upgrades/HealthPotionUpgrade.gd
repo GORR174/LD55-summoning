@@ -6,7 +6,7 @@ class_name HealthPotionUpgrade
 func _init():
 	image = load("res://textures/heal_potion.png")
 	title = "Heal potion"
-	description = "Give you 20% HP"
+	description = "Gives you 20% HP"
 
 
 func apply():

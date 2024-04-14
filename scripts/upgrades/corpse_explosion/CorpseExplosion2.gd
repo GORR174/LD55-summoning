@@ -6,7 +6,7 @@ class_name CorpseExplosion2
 func _init():
 	image = load("res://textures/unabomber_manifesto.png")
 	title = "Unabomber manifesto lvl 2"
-	description = "Reduced copse explosion cooldown"
+	description = "Reduced corpse explosion cooldown"
 	next_upgrade = CorpseExplosion3.new()
 
 
