@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=3 uid="uid://cwmbl1obwghej"]
+[gd_scene load_steps=14 format=3 uid="uid://cwmbl1obwghej"]
 
 [ext_resource type="Script" path="res://scripts/menu/Menu.gd" id="1_qqsc2"]
 [ext_resource type="Theme" uid="uid://dhmtnj7vvtt4h" path="res://main_theme.tres" id="1_tc3wh"]
@@ -6,6 +6,7 @@
 [ext_resource type="TileSet" uid="uid://cphn4c71ft87v" path="res://tileset/ground.tres" id="4_odvvo"]
 [ext_resource type="Texture2D" uid="uid://winvk38y5c0r" path="res://prefabs/skeleton/Skeleton.png" id="5_ilalr"]
 [ext_resource type="Texture2D" uid="uid://dl2q1k7ngmok6" path="res://textures/ClayTotem.png" id="6_lt1ak"]
+[ext_resource type="Texture2D" uid="uid://cd6j2u5g0j3e" path="res://prefabs/player/Player.png" id="7_cfj7a"]
 
 [sub_resource type="Animation" id="Animation_36cqw"]
 resource_name = "idle"
@@ -150,17 +151,17 @@ layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -916.0
-offset_top = 938.0
-offset_right = -416.0
-offset_bottom = 1153.0
+offset_left = -631.0
+offset_top = 963.0
+offset_right = -131.0
+offset_bottom = 1178.0
 grow_horizontal = 2
 theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
 theme_override_constants/outline_size = 16
 theme_override_fonts/font = ExtResource("3_4hnqu")
 theme_override_font_sizes/font_size = 60
 text = "Game by Gorr
-For Ludum Dare 55
+Made for Ludum Dare 55 in 48 hours
 Catstack Games <3 Godot"
 label_settings = SubResource("LabelSettings_lcte5")
 
@@ -263,10 +264,18 @@ scale = Vector2(-22, 22)
 texture = ExtResource("5_ilalr")
 
 [node name="ClayTotem" type="Sprite2D" parent="."]
+visible = false
 z_index = -1
 position = Vector2(173, 982)
 scale = Vector2(22, 22)
 texture = ExtResource("6_lt1ak")
+
+[node name="Player" type="Sprite2D" parent="."]
+z_index = -1
+position = Vector2(205, 858)
+rotation = -0.044815
+scale = Vector2(22, 22)
+texture = ExtResource("7_cfj7a")
 
 [connection signal="mouse_entered" from="Control/VBoxContainer/Control/PlayButton" to="." method="_on_play_button_mouse_entered"]
 [connection signal="pressed" from="Control/VBoxContainer/Control/PlayButton" to="." method="_on_play_button_pressed"]

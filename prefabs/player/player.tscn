@@ -66,6 +66,7 @@ var seconds: int = 0:
 			minutes += 1
 		text = (str(minutes) if minutes < 10 else str(minutes)) + \":\" \\
 			+ (\"0\" + str(seconds) if seconds < 10 else str(seconds))
+		Global.time_survived = text
 
 
 func _ready():
@@ -199,6 +200,14 @@ script = SubResource("GDScript_mun7u")
 
 [node name="Timer" type="Timer" parent="Camera2D/TimerLabel"]
 autostart = true
+
+[node name="LoseRect" type="ColorRect" parent="Camera2D"]
+z_index = 1000
+offset_left = -988.0
+offset_top = -566.0
+offset_right = 996.0
+offset_bottom = 558.0
+color = Color(0, 0, 0, 0)
 
 [node name="HealthSystem" type="Node" parent="."]
 script = ExtResource("4_3adh0")

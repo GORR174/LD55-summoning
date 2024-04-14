@@ -18,8 +18,11 @@ func exec():
 	if is_opened and !cooldown:
 		for i in range(0, corpse_count):
 			var bones_position = Global.pick_bones()
-			if bones_position == null and i == 0:
-				return false
+			if bones_position == null:
+				if i == 0:
+					return false
+				else:
+					return true
 			var corpse_explosion = corpse_explosion_scene.instantiate()
 			corpse_explosion.position = bones_position
 			corpse_explosion.damage += additional_damage

@@ -1,7 +1,7 @@
 extends Node2D
 
 
-@onready var next_scene: PackedScene = load("res://scenes/Menu.tscn")
+@onready var next_scene: PackedScene = load("res://scenes/GameOver.tscn")
 
 
 func _ready():

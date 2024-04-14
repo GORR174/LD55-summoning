@@ -1,5 +1,6 @@
 extends Node2D
 
+@export var is_menu = true
 
 var group = ButtonGroup.new()
 
@@ -57,17 +58,12 @@ func _on_exit_button_mouse_entered():
 
 func _on_play_button_pressed():
 	print("start game")
-	#await bg_tween_in()
 	get_tree().change_scene_to_packed(start_game_scene)
-
-
-#func bg_tween_in():
-	#var bg_tween_in = get_tree().create_tween()
-	#bg_tween_in.tween_property($Control/BlackRect, "color:a", 1, 0.4)
-	#await bg_tween_in.finished
-	#$Control/BlackRect.color.a = 1.0
 
 
 func _on_exit_button_pressed():
 	print("exit")
-	get_tree().quit()
+	if is_menu:
+		get_tree().quit()
+	else:
+		get_tree().change_scene_to_packed(load("res://scenes/Menu.tscn"))

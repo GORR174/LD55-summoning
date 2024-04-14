@@ -18,10 +18,12 @@ var to_next_lvl = 3
 
 var current_xp: float = 0:
 	set(value):
+		Global.enemies_killed += 1
 		current_xp = value
 		if current_xp >= to_next_lvl:
 			current_xp -= to_next_lvl
 			current_lvl += 1
+			Global.max_level = current_lvl
 			if current_lvl < 4:
 				to_next_lvl = to_next_lvl * 1.3
 			elif current_lvl < 10:
@@ -58,4 +60,10 @@ func _physics_process(delta):
 
 
 func _on_death():
-	Global.game_ref.game_over()
+	$PlayerSprite.queue_free()
+	process_mode = Node.PROCESS_MODE_DISABLED
+	var tween = get_tree().create_tween()
+	tween.tween_property($Camera2D/LoseRect, "color:a", 1, 0.8).set_trans(Tween.TRANS_SINE)
+	await tween.finished
+	get_parent().game_over()
+	#get_tree().paused = true
