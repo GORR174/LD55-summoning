@@ -1,0 +1,88 @@
+[gd_scene load_steps=4 format=3 uid="uid://q2kmx7krnuvd"]
+
+[ext_resource type="Script" path="res://scripts/Chunk.gd" id="1_6clc6"]
+[ext_resource type="Script" path="res://scripts/PossibleDecoration.gd" id="2_at1m8"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wjx85"]
+size = Vector2(2048, 2048)
+
+[node name="Chunk" type="Node2D"]
+z_index = 9
+script = ExtResource("1_6clc6")
+
+[node name="chunk" type="ColorRect" parent="."]
+visible = false
+offset_left = -128.0
+offset_top = -128.0
+offset_right = 128.0
+offset_bottom = 128.0
+color = Color(0.152941, 1, 1, 0.513726)
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 128
+collision_mask = 4
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_wjx85")
+
+[node name="PossibleDecoration" type="Sprite2D" parent="."]
+scale = Vector2(2.5, 2.5)
+script = ExtResource("2_at1m8")
+
+[node name="PossibleDecoration2" type="Sprite2D" parent="."]
+position = Vector2(-437, -410)
+scale = Vector2(2.5, 2.5)
+script = ExtResource("2_at1m8")
+
+[node name="PossibleDecoration3" type="Sprite2D" parent="."]
+position = Vector2(733, 141)
+scale = Vector2(2.5, 2.5)
+script = ExtResource("2_at1m8")
+
+[node name="PossibleDecoration4" type="Sprite2D" parent="."]
+position = Vector2(-599, 528)
+scale = Vector2(2.5, 2.5)
+script = ExtResource("2_at1m8")
+
+[node name="PossibleDecoration5" type="Sprite2D" parent="."]
+position = Vector2(740, -764)
+scale = Vector2(2.5, 2.5)
+script = ExtResource("2_at1m8")
+
+[node name="PossibleDecoration6" type="Sprite2D" parent="."]
+position = Vector2(7.27596e-12, -986)
+scale = Vector2(2.5, 2.5)
+script = ExtResource("2_at1m8")
+
+[node name="PossibleDecoration7" type="Sprite2D" parent="."]
+position = Vector2(-780, -37.0001)
+scale = Vector2(2.5, 2.5)
+script = ExtResource("2_at1m8")
+
+[node name="PossibleDecoration8" type="Sprite2D" parent="."]
+position = Vector2(515, 642)
+scale = Vector2(2.5, 2.5)
+script = ExtResource("2_at1m8")
+
+[node name="PossibleDecoration9" type="Sprite2D" parent="."]
+position = Vector2(138, 235)
+scale = Vector2(2.5, 2.5)
+script = ExtResource("2_at1m8")
+
+[node name="PossibleDecoration10" type="Sprite2D" parent="."]
+position = Vector2(-252, 851)
+scale = Vector2(2.5, 2.5)
+script = ExtResource("2_at1m8")
+
+[node name="PossibleDecoration11" type="Sprite2D" parent="."]
+position = Vector2(549, -478)
+scale = Vector2(2.5, 2.5)
+script = ExtResource("2_at1m8")
+
+[node name="PossibleDecoration12" type="Sprite2D" parent="."]
+position = Vector2(-948, -976)
+scale = Vector2(2.5, 2.5)
+script = ExtResource("2_at1m8")
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]

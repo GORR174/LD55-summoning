@@ -8,6 +8,7 @@
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 
 [node name="Version" type="Label" parent="CanvasLayer"]
+visible = false
 offset_left = 1540.0
 offset_top = 1011.0
 offset_right = 1895.0

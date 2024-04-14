@@ -21,6 +21,20 @@ var upgrades: Array = [
 	Golem1.new()
 ]
 
+var decorations: Array = [
+	preload("res://textures/pentagram.png"),
+	preload("res://textures/hmm.png"),
+	preload("res://textures/puddle.png"),
+	preload("res://textures/flowers.png"),
+	preload("res://textures/flowers.png"),
+	preload("res://textures/flowers.png"),
+	preload("res://textures/die.png"),
+	preload("res://textures/uwu.png"),
+	preload("res://textures/ZombieHand.png"),
+	preload("res://textures/godot.png"),
+	preload("res://textures/rusty_machette.png"),
+]
+
 func reset():
 	bones.clear()
 	enemies.clear()

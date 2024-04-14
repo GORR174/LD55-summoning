@@ -26,7 +26,7 @@ func _process(delta):
 		if button.button_pressed and button.scale.x < 1.1:
 			button.scale.x = clamp(button.scale.x + delta, 1, 1.2)
 			button.scale.y = clamp(button.scale.y + delta, 1, 1.2)
-			(button.find_child("Label") as Label).modulate = Color.ORANGE_RED
+			(button.find_child("Label") as Label).modulate = Color("f72626")
 		if !button.button_pressed and button.scale.x > 1:
 			button.scale.x = clamp(button.scale.x - delta, 1, 1.2)
 			button.scale.y = clamp(button.scale.y - delta, 1, 1.2)

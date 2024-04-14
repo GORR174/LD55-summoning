@@ -15,7 +15,7 @@ radius = 107.075
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_ux37f"]
 resource_local_to_scene = true
-radius = 25.0
+radius = 20.0
 
 [node name="Golem" type="CharacterBody2D" groups=["golem"]]
 collision_layer = 16
@@ -46,7 +46,7 @@ shape = SubResource("CircleShape2D_ll60v")
 autostart = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, -21)
+position = Vector2(0, -17)
 shape = SubResource("CircleShape2D_ux37f")
 
 [node name="HealthSystem" type="Node" parent="."]
