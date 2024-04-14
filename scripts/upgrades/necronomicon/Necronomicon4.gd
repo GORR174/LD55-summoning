@@ -6,7 +6,7 @@ class_name Necronomicon4
 func _init():
 	image = load("res://textures/necronomicon.png")
 	title = "Necronomicon lvl 4"
-	description = "Now you can summon 3 skeleton"
+	description = "Now you can summon 3 skeletons"
 	next_upgrade = Necronomicon5.new()
 
 

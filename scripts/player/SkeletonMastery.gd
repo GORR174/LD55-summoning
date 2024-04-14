@@ -27,7 +27,7 @@ func exec():
 		s_health.health = s_health.max_health
 		Global.game_ref.add_child(skeleton)
 		cooldown = true
-		get_tree().create_timer(cooldown_time).timeout.connect(reset_cooldown)
+		get_tree().create_timer(cooldown_time, false).timeout.connect(reset_cooldown)
 		return true
 	return false
 

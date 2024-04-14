@@ -11,7 +11,6 @@ var _can_hit = true
 
 
 func damage():
-	print("damage")
 	_can_hit = true
 	for enemy in get_overlapping_bodies():
 		enemy.find_child("DamageSystem").damage(owner.damage, owner)

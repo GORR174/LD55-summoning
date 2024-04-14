@@ -13,8 +13,18 @@ var enemy_spawner: Node2D
 
 var upgrades: Array = [
 	Necronomicon2.new(),
-	CorpseExplosion1.new()
+	CorpseExplosion1.new(),
+	FleshTower1.new()
 ]
+
+func reset():
+	bones.clear()
+	enemies.clear()
+	upgrades = [
+		Necronomicon2.new(),
+		CorpseExplosion1.new(),
+		FleshTower1.new()
+	]
 
 
 func pick_bones():

@@ -21,7 +21,7 @@ func _ready():
 	if !Engine.is_editor_hint():
 		if health_system == null:
 			health_system = get_parent().find_child("HealthSystem", false)
-	get_tree().create_timer(8).timeout.connect(_heal)
+	get_tree().create_timer(8, false).timeout.connect(_heal)
 
 
 func _process(delta):
@@ -31,5 +31,5 @@ func _process(delta):
 
 func _heal():
 	health_system.health += 1
-	get_tree().create_timer(8).timeout.connect(_heal)
+	get_tree().create_timer(8, false).timeout.connect(_heal)
 

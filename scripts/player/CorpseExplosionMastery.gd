@@ -29,7 +29,7 @@ func exec():
 			Global.game_ref.add_child(corpse_explosion)
 			corpse_explosion.emitting = true
 			cooldown = true
-			get_tree().create_timer(cooldown_time).timeout.connect(reset_cooldown)
+			get_tree().create_timer(cooldown_time, false).timeout.connect(reset_cooldown)
 		return true
 	return false
 

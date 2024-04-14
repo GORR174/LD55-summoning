@@ -24,12 +24,16 @@ func spawn_enemy(count):
 	
 	var time = Global.timer_ref
 	if time.minutes < 1 and time.seconds < 20:
-		get_tree().create_timer(4).timeout.connect(spawn_enemy.bind(1))
+		get_tree().create_timer(4, false).timeout.connect(spawn_enemy.bind(1))
 	elif time.minutes < 1:
-		get_tree().create_timer(4).timeout.connect(spawn_enemy.bind(2))
+		get_tree().create_timer(4, false).timeout.connect(spawn_enemy.bind(2))
 	elif time.minutes < 2:
-		get_tree().create_timer(3).timeout.connect(spawn_enemy.bind(2))
+		get_tree().create_timer(3, false).timeout.connect(spawn_enemy.bind(2))
 	elif time.minutes < 3:
-		get_tree().create_timer(3).timeout.connect(spawn_enemy.bind(4))
+		get_tree().create_timer(3, false).timeout.connect(spawn_enemy.bind(4))
+	elif time.minutes < 4:
+		get_tree().create_timer(2, false).timeout.connect(spawn_enemy.bind(3))
+	elif time.minutes < 5:
+		get_tree().create_timer(2, false).timeout.connect(spawn_enemy.bind(4))
 	elif time.minutes < 10:
-		get_tree().create_timer(3).timeout.connect(spawn_enemy.bind(2))
+		get_tree().create_timer(2, false).timeout.connect(spawn_enemy.bind(4))
