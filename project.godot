@@ -11,12 +11,13 @@ config_version=5
 [application]
 
 config/name="Necromancy Survivors"
-config/version="0.0.1-SNAPSHOT"
+config/version="1.0.0-LD"
 run/main_scene="res://scenes/Menu.tscn"
 config/use_custom_user_dir=true
 config/custom_user_dir_name="Catstack/NecromancySurvivors"
 config/features=PackedStringArray("4.2", "GL Compatibility")
-config/icon="res://icon.svg"
+config/icon="res://icon.png"
+config/windows_native_icon="res://icon.ico"
 
 [autoload]
 

@@ -23,7 +23,7 @@ scale = Vector2(2.5, 2.5)
 texture = ExtResource("1_7vsfs")
 
 [node name="DespawnTimer" type="Timer" parent="."]
-wait_time = 120.0
+wait_time = 100.0
 autostart = true
 
 [connection signal="screen_entered" from="InvisibleHider" to="." method="_on_invisible_hider_screen_entered"]

@@ -6,7 +6,7 @@ class_name FleshTower4
 func _init():
 	image = load("res://textures/ZombieHand.png")
 	title = "Is this a zombie hand? lvl 4"
-	description = "Flesh towers deals more damage"
+	description = "Flesh towers deal more damage"
 	next_upgrade = FleshTower5.new()
 
 
