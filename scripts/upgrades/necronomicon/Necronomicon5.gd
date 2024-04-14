@@ -5,7 +5,7 @@ class_name Necronomicon5
 
 func _init():
 	image = load("res://textures/necronomicon.png")
-	title = "Necronomicon lvl 6"
+	title = "Necronomicon lvl 5"
 	description = "Redused spawn cooldown"
 	next_upgrade = Necronomicon6.new()
 

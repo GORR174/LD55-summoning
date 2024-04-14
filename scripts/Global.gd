@@ -12,7 +12,8 @@ var enemies: Array
 var enemy_spawner: Node2D
 
 var upgrades: Array = [
-	Necronomicon2.new()
+	Necronomicon2.new(),
+	CorpseExplosion1.new()
 ]
 
 

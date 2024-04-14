@@ -8,7 +8,7 @@
 script/source = "extends CPUParticles2D
 
 
-var damage = 8
+var damage = 33
 
 
 func _ready():
@@ -16,7 +16,8 @@ func _ready():
 "
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_wumgk"]
-radius = 251.032
+resource_local_to_scene = true
+radius = 250.0
 
 [node name="CorpseExplosion" type="CPUParticles2D"]
 z_index = 11
