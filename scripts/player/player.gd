@@ -9,7 +9,7 @@ extends CharacterBody2D
 
 const SPEED = 200.0
 
-var damage: int = 2
+var damage: int = 20
 
 var current_lvl = 1
 var to_next_lvl = 3

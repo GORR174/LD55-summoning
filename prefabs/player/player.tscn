@@ -258,6 +258,7 @@ stream = ExtResource("12_1xbdm")
 max_polyphony = 4
 
 [node name="MusicPlayer" type="AudioStreamPlayer2D" parent="."]
+process_mode = 3
 stream = ExtResource("16_p30p1")
 autoplay = true
 

@@ -11,6 +11,10 @@ var enemies: Array
 
 var enemy_spawner: Node2D
 
+var upgrades: Array = [
+	Necronomicon2.new()
+]
+
 
 func pick_bones():
 	if bones.size() > 0:

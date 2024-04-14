@@ -6,7 +6,7 @@ extends CharacterBody2D
 var speed = 300 + randf_range(-10, 50)
 var target: Node2D
 
-var damage: int = 1
+var damage: int = 10
 
 func _physics_process(delta):
 #	I hate myself for this code :P

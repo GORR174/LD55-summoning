@@ -5,6 +5,15 @@ class_name ImproveCard
 
 signal choosed(card: ImproveCard)
 
+var upgrade: Upgrade
+
+
+func set_upgrade(_upgrade: Upgrade):
+	upgrade = _upgrade
+	$Container/ItemSprite.texture = upgrade.image
+	$Container/Name.text = upgrade.title
+	$Container/Description.text = upgrade.description
+
 
 func _on_area_2d_mouse_entered():
 	var tween = create_tween()

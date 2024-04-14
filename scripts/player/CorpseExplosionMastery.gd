@@ -5,10 +5,11 @@ extends Node2D
 
 var cooldown = false
 var cooldown_time = 10
+var is_opened = false
 
 
 func exec():
-	if !cooldown:
+	if is_opened and !cooldown:
 		var bones_position = Global.pick_bones()
 		if bones_position == null:
 			return false

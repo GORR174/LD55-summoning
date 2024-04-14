@@ -51,7 +51,6 @@ blink_object = NodePath("../Sprite")
 
 [node name="HealthSystem" type="Node" parent="." node_paths=PackedStringArray("meat_spawn_point")]
 script = ExtResource("5_d7ein")
-max_health = 10
 should_spawn_meat = true
 meat_spawn_point = NodePath("../BonesSpawnPoint")
 

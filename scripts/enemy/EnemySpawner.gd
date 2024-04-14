@@ -27,5 +27,9 @@ func spawn_enemy(count):
 		get_tree().create_timer(4).timeout.connect(spawn_enemy.bind(1))
 	elif time.minutes < 1:
 		get_tree().create_timer(4).timeout.connect(spawn_enemy.bind(2))
+	elif time.minutes < 2:
+		get_tree().create_timer(3).timeout.connect(spawn_enemy.bind(2))
+	elif time.minutes < 3:
+		get_tree().create_timer(3).timeout.connect(spawn_enemy.bind(4))
 	elif time.minutes < 10:
 		get_tree().create_timer(3).timeout.connect(spawn_enemy.bind(2))
