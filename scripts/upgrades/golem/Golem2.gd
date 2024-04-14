@@ -6,7 +6,7 @@ class_name Golem2
 func _init():
 	image = load("res://textures/ClayTotem.png")
 	title = "Clay Totem lvl 2"
-	description = "Golem have more attack damage"
+	description = "Golem has more attack damage"
 	next_upgrade = Golem3.new()
 
 
