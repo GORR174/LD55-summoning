@@ -12,6 +12,8 @@ class_name HealthSystem
 	set(value):
 		health_changed.emit(value, health, max_health)
 		health = value
+		if health > max_health:
+			health = max_health
 		
 
 var is_dead = false

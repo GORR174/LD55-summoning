@@ -14,7 +14,8 @@ var enemy_spawner: Node2D
 var upgrades: Array = [
 	Necronomicon2.new(),
 	CorpseExplosion1.new(),
-	FleshTower1.new()
+	FleshTower1.new(),
+	HealthPotionUpgrade.new()
 ]
 
 func reset():
@@ -23,7 +24,8 @@ func reset():
 	upgrades = [
 		Necronomicon2.new(),
 		CorpseExplosion1.new(),
-		FleshTower1.new()
+		FleshTower1.new(),
+		HealthPotionUpgrade.new()
 	]
 
 

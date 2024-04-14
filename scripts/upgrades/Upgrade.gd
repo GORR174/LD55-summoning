@@ -16,3 +16,7 @@ func _init(_title, _description, _image, _next_upgrade):
 
 func apply():
 	pass
+
+
+func set_next_upgrade():
+	pass

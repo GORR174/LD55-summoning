@@ -21,6 +21,7 @@ func send_update_to_card(card):
 
 func choosed(card: ImproveCard):
 	print(card)
+	card.upgrade.set_next_upgrade()
 	if card.upgrade.next_upgrade != null:
 		Global.upgrades.append(card.upgrade.next_upgrade)
 	for _card in cards:
